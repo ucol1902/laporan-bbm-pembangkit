@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fuel Watch</title>
-  </head>
+    <head>      
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Kasir Kita</title>
+    </head>
   <body>
-    <iframe src="https://script.google.com/macros/s/AKfycbwLuOT_OW2MwOpUnR3avN4iL6Rd8kZUawtWtae1iVb1MDDAj6ZjZHqE5mcjRePykddz/exec"
-      width="100%"
-      height="100%"
-      allowfullscreen="true"
-      style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+    <iframe id="kasirIframe" src="" allowfullscreen="true" width="100%" height="100%"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+    
     <script>
       window.onload = function() {
+        const gasBaseUrl = "https://script.google.com/macros/s/AKfycbwLuOT_OW2MwOpUnR3avN4iL6Rd8kZUawtWtae1iVb1MDDAj6ZjZHqE5mcjRePykddz/exec";
+        const queryString = window.location.search;
+        const finalUrl = gasBaseUrl + queryString;
+        document.getElementById('kasirIframe').src = finalUrl;
         document.querySelector('iframe').requestFullScreen().catch((err) => {
           console.error(`Error attemping to enable full-screen mode: ${err.message}`);
         });
